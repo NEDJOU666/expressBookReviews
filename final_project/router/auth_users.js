@@ -24,7 +24,7 @@ regd_users.post("/login", (req, res) => {
     if (authenticatedUser(username, password)) {
         let accessToken = jwt.sign({ data: username }, "access", { expiresIn: 60 * 60 });
         req.session.authorization = { accessToken };
-        return res.status(200).json({ message: "User successfully logged in", accessToken });
+        return res.status(200).json({ message: "Login successful!", accessToken });
     } else {
         return res.status(401).json({ message: "Invalid login. Check username and password" });
     }
